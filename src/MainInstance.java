@@ -7,8 +7,6 @@ public class MainInstance {
         //Add instance between observer and observable
         object.addObserver(metrics);
         //Executable actions
-        object.active();
-        object.inactive();
-        object.active();
+        
     }
 }

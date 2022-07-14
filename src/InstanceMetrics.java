@@ -2,25 +2,18 @@ import java.util.Observable;
 import java.util.Observer;
 
 public class InstanceMetrics implements Observer, Instance {
+    private boolean isActiveInstance = false;
+
     @Override
-    public void active() {
-        System.out.println("Objet active at Metrics");
-    }
-    @Override
-    public void inactive() {
-        System.out.println("Object inactive at Metrics");
+    public void active(boolean actual) {
+        this.isActiveInstance = actual;
     }
 
     @Override
-    public void update(Observable o, Object arg) {
-//        InstanceObject objectObservable = (InstanceObject)arg;
-        String action = String.valueOf(arg);
-
-        if (action.equals("active")) {
+    public void update(Observable object, Object argument) {
+        boolean action = boolean.valueOf(argument);
+        if (action) {
             this.active();
-        }
-        else if (action.equals("inactive")) {
-            this.inactive();
-        }
+        } 
     }
 }

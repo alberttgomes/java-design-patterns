@@ -1,23 +1,16 @@
 import java.util.Observable;
 
 public class InstanceObject extends Observable implements Instance {
-    String action = "";
+    private boolean isActiveInstance = false;
+    
     @Override
-    public void active() {
-        action = "active";
-        this.changedState();
-        System.out.println("This object it's active");
+    public void active(boolean actual) {
+        this.isActiveInstance = actual;
     }
-    @Override
-    public void inactive() {
-        action = "inactive";
-        this.changedState();
-        System.out.println("This object it's inactive");
-    }
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("changed state of object")
     public void changedState() {
         setChanged();
-        notifyObservers(action);
+        notifyObservers(isActiveInstance);
     }
 
 }
