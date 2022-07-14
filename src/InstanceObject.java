@@ -2,7 +2,6 @@ import java.util.Observable;
 
 public class InstanceObject extends Observable implements Instance {
     private boolean isActiveInstance = false;
-    
     @Override
     public void active(boolean actual) {
         this.isActiveInstance = actual;
